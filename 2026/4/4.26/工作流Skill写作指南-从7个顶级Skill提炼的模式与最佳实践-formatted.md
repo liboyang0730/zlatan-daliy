@@ -37,7 +37,7 @@ my-skill/
 
 **关键机制**：Skill 本质是"知识注入"——它不会动态生成新工具，而是把指令文本注入到 LLM 的上下文中，LLM 用已有的工具（bash、read、edit 等）来执行这些指令。
 
-![Skill 文件结构](https://github.com/liboyang0730/zlatan-daily/blob/main/2026/4/images/skill-workflow-guide/01-framework-skill-structure.png?raw=true)
+![Skill 文件结构](https://github.com/liboyang0730/zlatan-daily/blob/main/2026/4/4.26/imgs/01-framework-skill-structure.png?raw=true)
 
 ***
 
@@ -89,7 +89,7 @@ description: Helps with deployment stuff
 
 ## 三、5 种核心设计模式
 
-![5 种核心设计模式](https://github.com/liboyang0730/zlatan-daily/blob/main/2026/4/images/skill-workflow-guide/02-framework-five-patterns.png?raw=true)
+![5 种核心设计模式](https://github.com/liboyang0730/zlatan-daily/blob/main/2026/4/4.26/imgs/02-framework-five-patterns.png?raw=true)
 
 ### 模式 1：线性流程
 
@@ -119,7 +119,7 @@ description: Helps with deployment stuff
 
 **适用判断**：如果你的 Skill 可以用"先做 A，再做 B，最后做 C"描述，就用线性模式。
 
-![线性流程模式](https://github.com/liboyang0730/zlatan-daily/blob/main/2026/4/images/skill-workflow-guide/03-flowchart-linear-process.png?raw=true)
+![线性流程模式](https://github.com/liboyang0730/zlatan-daily/blob/main/2026/4/4.26/imgs/03-flowchart-linear-process.png?raw=true)
 
 ***
 
@@ -152,7 +152,7 @@ description: Helps with deployment stuff
 
 **适用判断**：如果你的 Skill 覆盖的知识域有 10+ 个分支，且每个分支都有大量详细文档，就用决策树模式。
 
-![决策树模式](https://github.com/liboyang0730/zlatan-daily/blob/main/2026/4/images/skill-workflow-guide/04-flowchart-decision-tree.png?raw=true)
+![决策树模式](https://github.com/liboyang0730/zlatan-daily/blob/main/2026/4/4.26/imgs/04-flowchart-decision-tree.png?raw=true)
 
 **进阶**：同一个知识域可以拆成两个 Skill——
 
@@ -195,7 +195,7 @@ description: Helps with deployment stuff
 
 **适用判断**：如果你的 Skill 需要 LLM 反复执行"做→验证→改进"的循环，就用迭代模式。
 
-![循环迭代模式](https://github.com/liboyang0730/zlatan-daily/blob/main/2026/4/images/skill-workflow-guide/05-flowchart-loop-iteration.png?raw=true)
+![循环迭代模式](https://github.com/liboyang0730/zlatan-daily/blob/main/2026/4/4.26/imgs/05-flowchart-loop-iteration.png?raw=true)
 
 ***
 
@@ -233,7 +233,7 @@ description: Helps with deployment stuff
 
 **适用判断**：如果你的 Skill 需要跨多个 session 持续工作，或者需要多个 Agent 协作，就用接力棒模式。
 
-![接力棒循环模式](https://github.com/liboyang0730/zlatan-daily/blob/main/2026/4/images/skill-workflow-guide/06-flowchart-baton-loop.png?raw=true)
+![接力棒循环模式](https://github.com/liboyang0730/zlatan-daily/blob/main/2026/4/4.26/imgs/06-flowchart-baton-loop.png?raw=true)
 
 **与模式 3 的区别**：
 
@@ -279,7 +279,7 @@ description: Helps with deployment stuff
 
 **适用判断**：如果你的 Skill 跨越多天/多周，有明确的阶段划分和 Go/No-Go 决策点，就用多阶段模式。
 
-![多阶段检查点模式](https://github.com/liboyang0730/zlatan-daily/blob/main/2026/4/images/skill-workflow-guide/07-flowchart-multi-phase.png?raw=true)
+![多阶段检查点模式](https://github.com/liboyang0730/zlatan-daily/blob/main/2026/4/4.26/imgs/07-flowchart-multi-phase.png?raw=true)
 
 ***
 
@@ -325,7 +325,7 @@ description: Helps with deployment stuff
 
 ### 4.1 防止 LLM 偷懒的 4 种武器
 
-![防止 LLM 偷懒的 4 种武器](https://github.com/liboyang0730/zlatan-daily/blob/main/2026/4/images/skill-workflow-guide/08-comparison-anti-lazy-weapons.png?raw=true)
+![防止 LLM 偷懒的 4 种武器](https://github.com/liboyang0730/zlatan-daily/blob/main/2026/4/4.26/imgs/08-comparison-anti-lazy-weapons.png?raw=true)
 
 | 武器    | 原理                 | 示例来源                                |
 | ----- | ------------------ | ----------------------------------- |
@@ -352,7 +352,7 @@ description: Helps with deployment stuff
 
 ### 4.4 知识组织的 3 层架构
 
-![知识组织 3 层架构](https://github.com/liboyang0730/zlatan-daily/blob/main/2026/4/images/skill-workflow-guide/09-framework-knowledge-layers.png?raw=true)
+![知识组织 3 层架构](https://github.com/liboyang0730/zlatan-daily/blob/main/2026/4/4.26/imgs/09-framework-knowledge-layers.png?raw=true)
 
 * **第 1 层：Frontmatter**（\~100 tokens）→ LLM 扫描所有 Skill 的 description，决定是否加载
 * **第 2 层：SKILL.md 正文**（<5K tokens）→ 核心指令、决策树、流程步骤
@@ -371,7 +371,7 @@ description: Helps with deployment stuff
 
 ## 五、模式选择决策树
 
-![模式选择决策树](https://github.com/liboyang0730/zlatan-daily/blob/main/2026/4/images/skill-workflow-guide/10-flowchart-decision-tree-selector.png?raw=true)
+![模式选择决策树](https://github.com/liboyang0730/zlatan-daily/blob/main/2026/4/4.26/imgs/10-flowchart-decision-tree-selector.png?raw=true)
 
 ```
 你的 Skill 需要做什么？
